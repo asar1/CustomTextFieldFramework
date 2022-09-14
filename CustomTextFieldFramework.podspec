@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/CustomTextFieldFramework"
+  spec.homepage     = "http://Example/CustomTextFieldFramework.git"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://Example/CustomTextFieldFramework.git", :tag => "#{1.0.0}" }
+  spec.source       = { :git => "http://Example/CustomTextFieldFramework.git", :tag => "#{"1.0.0"}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
