@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |spec|
   spec.name             = "CustomTextFieldFramework"
-  spec.version          = "1.0.0"
+  spec.version          = "v1.0.0"
   spec.license          = "MIT"
   spec.homepage         = "https://github.com/asar1/CustomTextFieldFramework"
   spec.authors          = { "Asar1" => "asarsaleem@gmail.com" }
