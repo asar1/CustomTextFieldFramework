@@ -8,15 +8,16 @@
 import Foundation
 import UIKit
 
-class CustomTextfield: UITextField {
+public class CustomTextfield: UITextField {
+    static public let shared = CustomTextfield()
 
-    enum PaddingSide {
+    public enum PaddingSide {
         case left(CGFloat)
         case right(CGFloat)
         case both(CGFloat)
     }
 
-    func addPadding(_ padding: PaddingSide) {
+    public func addPadding(_ padding: PaddingSide) {
 
         self.leftViewMode = .always
         self.layer.masksToBounds = true
