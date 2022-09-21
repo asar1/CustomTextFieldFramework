@@ -45,22 +45,6 @@ public class CustomTextfield: UITextField {
             self.rightViewMode = .always
         }
     }
-    public func addShadows(_ textfield : UITextField) {
-        
-    }
-}
-//    public func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
-//                       shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
-//                       shadowOpacity: Float = 0.4,
-//                       shadowRadius: CGFloat = 3.0) {
-//            layer.shadowColor = shadowColor
-//            layer.shadowOffset = shadowOffset
-//            layer.shadowOpacity = shadowOpacity
-//            layer.shadowRadius = shadowRadius
-//            layer.masksToBounds = false
-//}
-extension UIView {
-    
     func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
         layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
         
@@ -80,6 +64,41 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
         
     }
+    public func addShadows(_ textfield : UITextField) {
+        
+    }
+}
+//    public func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
+//                       shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
+//                       shadowOpacity: Float = 0.4,
+//                       shadowRadius: CGFloat = 3.0) {
+//            layer.shadowColor = shadowColor
+//            layer.shadowOffset = shadowOffset
+//            layer.shadowOpacity = shadowOpacity
+//            layer.shadowRadius = shadowRadius
+//            layer.masksToBounds = false
+//}
+extension UIView {
+    
+//    func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
+//        layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
+//
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.colors = colorArray.map({ $0.cgColor })
+//        if isVertical {
+//            //top to bottom
+//            gradientLayer.locations = [0.0, 1.0]
+//        } else {
+//            //left to right
+//            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+//            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+//        }
+//
+//        backgroundColor = .clear
+//        gradientLayer.frame = bounds
+//        layer.insertSublayer(gradientLayer, at: 0)
+//
+//    }
     
     @IBInspectable var makeCircle: Bool {
         get {
@@ -200,5 +219,6 @@ extension UIView {
         layer.shadowOffset = shadowOffset
         layer.shadowOpacity = shadowOpacity
         layer.shadowRadius = shadowRadius
+        layer.masksToBounds = false
     }
 }
