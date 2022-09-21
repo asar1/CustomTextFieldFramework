@@ -45,7 +45,7 @@ public class CustomTextfield: UITextField {
             self.rightViewMode = .always
         }
     }
-    func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
+    public func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
         layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
         
         let gradientLayer = CAGradientLayer()
@@ -211,7 +211,7 @@ extension UIView {
         }
     }
     
-    func addShadow(shadowColor: CGColor = UIColor.lightGray.cgColor,
+   public func addShadow(shadowColor: CGColor = UIColor.lightGray.cgColor,
                    shadowOffset: CGSize = CGSize(width: 1.0, height: 1.0),
                    shadowOpacity: Float = 1,
                    shadowRadius: CGFloat = 2.0) {
