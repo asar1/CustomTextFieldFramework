@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 public class CustomTextfield: UITextField {
-    static public let shared = CustomTextfield()
     
     public enum PaddingSide {
         case left(CGFloat)
@@ -64,41 +63,6 @@ public class CustomTextfield: UITextField {
         layer.insertSublayer(gradientLayer, at: 0)
         
     }
-    public func addShadows(_ textfield : UITextField) {
-        
-    }
-}
-//    public func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
-//                       shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
-//                       shadowOpacity: Float = 0.4,
-//                       shadowRadius: CGFloat = 3.0) {
-//            layer.shadowColor = shadowColor
-//            layer.shadowOffset = shadowOffset
-//            layer.shadowOpacity = shadowOpacity
-//            layer.shadowRadius = shadowRadius
-//            layer.masksToBounds = false
-//}
-extension UIView {
-    
-//    func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
-//        layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
-//
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.colors = colorArray.map({ $0.cgColor })
-//        if isVertical {
-//            //top to bottom
-//            gradientLayer.locations = [0.0, 1.0]
-//        } else {
-//            //left to right
-//            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-//            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-//        }
-//
-//        backgroundColor = .clear
-//        gradientLayer.frame = bounds
-//        layer.insertSublayer(gradientLayer, at: 0)
-//
-//    }
     
     @IBInspectable var makeCircle: Bool {
         get {
@@ -107,9 +71,6 @@ extension UIView {
         set {
             if newValue == true {
                 self.layer.cornerRadius = self.layer.frame.height / 2
-            }
-            if shadow == false {
-                self.layer.masksToBounds = true
             }
         }
     }
@@ -199,7 +160,7 @@ extension UIView {
     }
 }
 
-extension UIView {
+public extension UIView {
     @IBInspectable var shadow: Bool {
         get {
             return layer.shadowOpacity > 0.0
@@ -211,7 +172,7 @@ extension UIView {
         }
     }
     
-   public func addShadow(shadowColor: CGColor = UIColor.lightGray.cgColor,
+    func addShadow(shadowColor: CGColor = UIColor.lightGray.cgColor,
                    shadowOffset: CGSize = CGSize(width: 1.0, height: 1.0),
                    shadowOpacity: Float = 1,
                    shadowRadius: CGFloat = 2.0) {
@@ -221,4 +182,6 @@ extension UIView {
         layer.shadowRadius = shadowRadius
         layer.masksToBounds = false
     }
+    
 }
+
