@@ -14,43 +14,32 @@ Currently it features the following effects from the article:
 - [x] Gradient Colors
 ## How they look
 
-### Kaede
-<img src="/Screenshots/Kaede.gif" />
+### StoryBoard Attribute Inspector
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/storyboard.png" />
 
-### Hoshi
-<img src="/Screenshots/Hoshi.gif" />
+### Make Cirlce
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/makecircle.png" />
 
-### Jiro
-<img src="/Screenshots/Jiro.gif" />
+### Corner Radius
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/cornerradius.png" />
 
-### Isao
-<img src="/Screenshots/Isao.gif" />
+### Border Color
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/bordercolor.png" />
 
-### Minoru
-<img src="/Screenshots/Minoru.gif" />
-
-### Yoko
-<img src="/Screenshots/Yoko.gif" />
-### Madoka
-<img src="/Screenshots/Madoka.gif" />
-
-### Akira
-<img src="/Screenshots/Akira.gif" />
-
-### Yoshiko
-<img src="/Screenshots/Yoshiko.gif" />
 
 ## Installation
 
 You can use CocoaPods to install PasswordTextField by adding it to your Podfile:
 
 - Pods for test
-  ``` pod 'CustomTextFieldFramework', :git => 'https://github.com/asar1/CustomTextFieldFramework.git'
+  ``` 
+  pod 'CustomTextFieldFramework', :git => 'https://github.com/asar1/CustomTextFieldFramework.git'
   ```
 To get the full benefits import PasswordTextField wherever you import UIKit
 
-``` import UIKit
-import PasswordTextField
+```
+import UIKit
+import CustomTextFieldFramework
 ```
 
 ## How to use them
