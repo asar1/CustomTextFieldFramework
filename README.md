@@ -32,15 +32,13 @@ Currently it features the following effects :
 
 You can use CocoaPods to install TextField by adding it to your Podfile:
 
-    ```swift
     pod 'CustomTextFieldFramework', :git => 'https://github.com/asar1/CustomTextFieldFramework.git'
-    ```
-To get the full benefits import PasswordTextField wherever you import UIKit
 
-    ```swift
-    import UIKit
-    import CustomTextFieldFramework
-    ```
+To get the full benefits import PasswordTextField wherever you import UIKit
+```swift
+import UIKit
+import CustomTextFieldFramework
+```
     
 ## Example
 
