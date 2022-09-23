@@ -44,6 +44,9 @@ public class CustomTextfield: UITextField {
             self.rightViewMode = .always
         }
     }
+}
+public extension UIView {
+    
     public func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
         layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
         
@@ -64,13 +67,17 @@ public class CustomTextfield: UITextField {
         
     }
     
-    @IBInspectable var makeCircle: Bool {
+    @IBInspectable
+    var makeCircle: Bool {
         get {
             return self.layer.cornerRadius > 0
         }
         set {
             if newValue == true {
                 self.layer.cornerRadius = self.layer.frame.height / 2
+            }
+            if shadow == false {
+                self.layer.masksToBounds = true
             }
         }
     }
@@ -161,7 +168,8 @@ public class CustomTextfield: UITextField {
 }
 
 public extension UIView {
-    @IBInspectable var shadow: Bool {
+    @IBInspectable
+    var shadow: Bool {
         get {
             return layer.shadowOpacity > 0.0
         }
@@ -180,8 +188,5 @@ public extension UIView {
         layer.shadowOffset = shadowOffset
         layer.shadowOpacity = shadowOpacity
         layer.shadowRadius = shadowRadius
-        layer.masksToBounds = false
     }
-    
 }
-

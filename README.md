@@ -1,7 +1,7 @@
 # CustomTextFieldFramework
-This custom TextField framework provides a lot of reusable functionalities to help in multiple scenarios.
+This `customTextFieldframework` provides a lot of reusable functionalities to help in multiple scenarios.
 
-Currently it features the following effects from the article:
+Currently it features the following effects :
 
 - [x] Padding
 - [x] Corner Radius
@@ -12,35 +12,39 @@ Currently it features the following effects from the article:
 - [x] Shadow opacity 
 - [x] Shadow Color
 - [x] Gradient Colors
-## How they look
+
+## Screens
 
 ### StoryBoard Attribute Inspector
 <img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/storyboard.png" />
 
 ### Make Cirlce
-<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/makecircle.png" />
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/makecircle.png" width="270">
 
 ### Corner Radius
-<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/cornerradius.png" />
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/cornerradius.png" width="270">
 
 ### Border Color
-<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/bordercolor.png" />
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/bordercolor.png" width="270">
 
 
 ## Installation
 
 You can use CocoaPods to install PasswordTextField by adding it to your Podfile:
 
-- Pods for test
-  ``` 
-  pod 'CustomTextFieldFramework', :git => 'https://github.com/asar1/CustomTextFieldFramework.git'
-  ```
+    ``` 
+    pod 'CustomTextFieldFramework', :git => 'https://github.com/asar1/CustomTextFieldFramework.git'
+    ```
 To get the full benefits import PasswordTextField wherever you import UIKit
 
-```
-import UIKit
-import CustomTextFieldFramework
-```
+    ```
+    import UIKit
+    import CustomTextFieldFramework
+    ```
+    
+## Example
+
+To run the example project, clone the repo or download it and run `pod install` from the this project directory first.
 
 ## How to use them
 
@@ -50,8 +54,11 @@ Every effect is properly documented in the source code, this is the best way to 
 
 The library is a simple drop-in, as soon as you import `CustomTextFieldFramework` at top of your controller and assign `CustomTextField` class to native Floating Textfield. Now you will be able to see all the IBDesignable settings in the storyboard.
 
-Is that simple.
+## License
+
+    CustomTextFieldFramework is available under the MIT license. See the LICENSE file for more info..
 
 ## Created by
-Asar Saleem, [@asar1](https://github.com/asar1)
+
+Muhammad Asar Saleem, [@asar1](https://github.com/asar1)
 
