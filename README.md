@@ -16,7 +16,7 @@ Currently it features the following effects :
 ## Screens
 
 ### StoryBoard Attribute Inspector
-<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/storyboard.png" />
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/storyboard.png" width="270">
 
 ### Make Cirlce
 <img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/makecircle.png" width="270">
@@ -30,14 +30,14 @@ Currently it features the following effects :
 
 ## Installation
 
-You can use CocoaPods to install PasswordTextField by adding it to your Podfile:
+You can use CocoaPods to install TextField by adding it to your Podfile:
 
-    ``` 
+    ```swift
     pod 'CustomTextFieldFramework', :git => 'https://github.com/asar1/CustomTextFieldFramework.git'
     ```
 To get the full benefits import PasswordTextField wherever you import UIKit
 
-    ```
+    ```swift
     import UIKit
     import CustomTextFieldFramework
     ```
@@ -56,7 +56,7 @@ The library is a simple drop-in, as soon as you import `CustomTextFieldFramework
 
 ## License
 
-    CustomTextFieldFramework is available under the MIT license. See the LICENSE file for more info..
+CustomTextFieldFramework is available under the MIT license. See the LICENSE file for more info..
 
 ## Created by
 
