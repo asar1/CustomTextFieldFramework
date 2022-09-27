@@ -8,63 +8,47 @@
 import Foundation
 import UIKit
 
+@IBDesignable
 public class CustomTextfield: UITextField {
     
-    public enum PaddingSide {
-        case left(CGFloat)
-        case right(CGFloat)
-        case both(CGFloat)
+    @IBInspectable var leftPadding: CGFloat {
+        get {
+            return leftView!.frame.size.width
+        }
+        set {
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
+            if leftView == nil {
+                leftView = paddingView
+                leftViewMode = .always
+            }
+            
+        }
     }
     
-    public func addPadding(_ padding: PaddingSide) {
-        
-        self.leftViewMode = .always
-        self.layer.masksToBounds = true
-        
-        
-        switch padding {
+    @IBInspectable var rightPadding: CGFloat {
+        get {
+            return rightView!.frame.size.width
+        }
+        set {
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
+            if rightView == nil {
+                rightView = paddingView
+                rightViewMode = .always
+            }
             
-        case .left(let spacing):
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
-            self.leftView = paddingView
-            self.rightViewMode = .always
-            
-        case .right(let spacing):
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
-            self.rightView = paddingView
-            self.rightViewMode = .always
-            
-        case .both(let spacing):
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
-            // left
-            self.leftView = paddingView
-            self.leftViewMode = .always
-            // right
-            self.rightView = paddingView
-            self.rightViewMode = .always
         }
     }
 }
-public extension UIView {
-    
-    public func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
-        layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = colorArray.map({ $0.cgColor })
-        if isVertical {
-            //top to bottom
-            gradientLayer.locations = [0.0, 1.0]
-        } else {
-            //left to right
-            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+
+@IBDesignable
+extension UIView {
+    @IBInspectable var bgColor:UIColor {
+        set {
+            self.backgroundColor = newValue
         }
-        
-        backgroundColor = .clear
-        gradientLayer.frame = bounds
-        layer.insertSublayer(gradientLayer, at: 0)
-        
+        get {
+            return self.bgColor
+        }
     }
     
     @IBInspectable
@@ -75,9 +59,6 @@ public extension UIView {
         set {
             if newValue == true {
                 self.layer.cornerRadius = self.layer.frame.height / 2
-            }
-            if shadow == false {
-                self.layer.masksToBounds = true
             }
         }
     }
@@ -118,60 +99,53 @@ public extension UIView {
             }
         }
     }
+}
+
+@IBDesignable
+extension UIView {
     
-    @IBInspectable
-    var shadowRadius: CGFloat {
-        get {
-            return layer.shadowRadius
-        }
+    @IBInspectable var shadowColor: UIColor?{
         set {
-            layer.shadowRadius = newValue
+            guard let uiColor = newValue else { return }
+            layer.shadowColor = uiColor.cgColor
+        }
+        get{
+            guard let color = layer.shadowColor else { return nil }
+            return UIColor(cgColor: color)
         }
     }
     
-    @IBInspectable
-    var shadowOpacity: Float {
-        get {
-            return layer.shadowOpacity
-        }
+    @IBInspectable var shadowOpacity: Float{
         set {
             layer.shadowOpacity = newValue
         }
+        get{
+            return layer.shadowOpacity
+        }
     }
     
-    @IBInspectable
-    var shadowOffset: CGSize {
-        get {
-            return layer.shadowOffset
-        }
+    @IBInspectable var shadowOffset: CGSize{
         set {
             layer.shadowOffset = newValue
         }
+        get{
+            return layer.shadowOffset
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat{
+        set {
+            layer.shadowRadius = newValue
+        }
+        get{
+            return layer.shadowRadius
+        }
     }
     
     @IBInspectable
-    var shadowColor: UIColor? {
-        get {
-            if let color = layer.shadowColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
-        }
-        set {
-            if let color = newValue {
-                layer.shadowColor = color.cgColor
-            } else {
-                layer.shadowColor = nil
-            }
-        }
-    }
-}
-
-public extension UIView {
-    @IBInspectable
     var shadow: Bool {
         get {
-            return layer.shadowOpacity > 0.0
+            return layer.shadowOpacity > 0
         }
         set {
             if newValue == true {
@@ -180,13 +154,51 @@ public extension UIView {
         }
     }
     
-    func addShadow(shadowColor: CGColor = UIColor.lightGray.cgColor,
-                   shadowOffset: CGSize = CGSize(width: 1.0, height: 1.0),
-                   shadowOpacity: Float = 1,
-                   shadowRadius: CGFloat = 2.0) {
-        layer.shadowColor = shadowColor
-        layer.shadowOffset = shadowOffset
-        layer.shadowOpacity = shadowOpacity
-        layer.shadowRadius = shadowRadius
+    @IBInspectable
+    var shake: Bool {
+        get {
+            return (layer.borderColor != nil) == true
+        }
+        set {
+            if newValue == true {
+                self.addShake()
+            }
+        }
+    }
+    
+    func addShadow() {
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.layer.shadowRadius = 2
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+        self.layer.masksToBounds = false
+    }
+    
+    func addShake() {
+        self.transform = CGAffineTransform(translationX: 10, y: 2)
+        self.showalert()
+        UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: { _ in
+            self.hideAlert()
+        })
+    }
+    
+    func showalert() {
+        self.layer.borderColor = UIColor.red.cgColor
+        self.layer.borderWidth = 1
+        self.layer.shadowColor = UIColor.red.cgColor
+        self.layer.shadowOpacity = 0.7
+        self.layer.shadowOffset = CGSize(width: 0.5, height: 1)
+        self.layer.shadowRadius = 1
+        self.layer.masksToBounds = false
+    }
+    
+    func hideAlert() {
+        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.shadowColor = UIColor.clear.cgColor
     }
 }
+
