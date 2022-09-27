@@ -4,6 +4,7 @@ This `customTextFieldframework` provides a lot of reusable functionalities to he
 Currently it features the following effects :
 
 - [x] Padding
+- [x] background Color
 - [x] Corner Radius
 - [x] border Width
 - [x] border Color
@@ -11,21 +12,21 @@ Currently it features the following effects :
 - [x] Shadow Offset
 - [x] Shadow opacity 
 - [x] Shadow Color
-- [x] Gradient Colors
+- [x] Error Animation
+
 
 ## Screens
 
 ### StoryBoard Attribute Inspector
-<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/storyboard.png" width="270">
-
-### Make Cirlce
+<p align="center">
+<img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/storyboard.png" />
+ </p> 
+<br>
+<br>
 <img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/makecircle.png" width="270">
-
-### Corner Radius
 <img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/cornerradius.png" width="270">
-
-### Border Color
 <img src="https://github.com/asar1/CustomTextFieldFramework/blob/main/Screenshot/bordercolor.png" width="270">
+ </p>
 
 
 ## Installation
