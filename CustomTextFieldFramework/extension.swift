@@ -13,7 +13,7 @@ public class CustomTextfield: UITextField {
     
     @IBInspectable var leftPadding: CGFloat {
         get {
-            return leftView!.frame.size.width
+            return leftView?.frame.size.width ?? 0
         }
         set {
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
@@ -27,7 +27,7 @@ public class CustomTextfield: UITextField {
     
     @IBInspectable var rightPadding: CGFloat {
         get {
-            return rightView!.frame.size.width
+            return rightView?.frame.size.width ?? 0
         }
         set {
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
@@ -42,7 +42,7 @@ public class CustomTextfield: UITextField {
 
 @IBDesignable
 extension UIView {
-    @IBInspectable var bgColor:UIColor {
+    @IBInspectable var bgColor: UIColor {
         set {
             self.backgroundColor = newValue
         }
@@ -161,15 +161,25 @@ extension UIView {
         }
         set {
             if newValue == true {
-                self.addShake()
+                self.addShakeAnimation()
             }
         }
     }
     
+    @IBInspectable
+    var ShakeColor: UIColor? {
+        get {
+            if let color = layer.borderColor {
+                return UIColor(cgColor: color)
+            }
+            return .black
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+    
     func addShadow() {
-        
-        //MARK: - this is adding shadow to the layer - 
-        
         self.layer.shadowColor = UIColor.gray.cgColor
         self.layer.shadowOpacity = 1
         self.layer.shadowOffset = CGSize(width: 2, height: 2)
@@ -179,27 +189,27 @@ extension UIView {
         self.layer.masksToBounds = false
     }
     
-    func addShake() {
+    func addShakeAnimation() {
         self.transform = CGAffineTransform(translationX: 10, y: 2)
-        self.showalert()
+        self.showBoarderColor()
         UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             self.transform = CGAffineTransform.identity
         }, completion: { _ in
-            self.hideAlert()
+            self.hideBoarderColor()
         })
     }
     
-    func showalert() {
-        self.layer.borderColor = UIColor.red.cgColor
+    func showBoarderColor() {
+        self.layer.borderColor = self.ShakeColor?.cgColor
         self.layer.borderWidth = 1
-        self.layer.shadowColor = UIColor.red.cgColor
+        self.layer.shadowColor = self.ShakeColor?.cgColor
         self.layer.shadowOpacity = 0.7
         self.layer.shadowOffset = CGSize(width: 0.5, height: 1)
         self.layer.shadowRadius = 1
         self.layer.masksToBounds = false
     }
     
-    func hideAlert() {
+    func hideBoarderColor() {
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.shadowColor = UIColor.clear.cgColor
     }
